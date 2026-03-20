@@ -37,7 +37,7 @@
 2. [x] **Step 2: Update the Old Blocks**: Go into the existing Input, Output, LLM, and Text blocks and swap their old code for the new Master template.
 3. [ ] **Step 3: Create 5 New Blocks**: Quickly build 5 more types of nodes using the new template.
     - [x] **3a: Note Node** - A simple sticky note for comments.
-    - [ ] **3b: Date Node** - A calendar picker for scheduling.
+    - [x] **3b: Date Node** - A calendar picker for scheduling.
     - [ ] **3c: Math Node** - A basic calculation block.
     - [ ] **3d: Choice Node** - A dropdown selection menu.
     - [ ] **3e: Image Node** - A URL-based image previewer.
@@ -67,6 +67,7 @@
 
 ### Step 3: Adding New Features (The 5 Nodes)
 - **The Note Node**: I built a "sticky note" block. It uses a yellow background and a simple text area. I even fixed a small bug where the text was a "default value" and turned it into a "placeholder" so it’s much nicer for the user to type into. It’s perfect for leaving comments on the map.
+- **The Date Node**: I added a "Date Picker" block. It lets users choose a date from a calendar. It was super fast to build because it uses the `BaseNode` template, which means it already matches the professional dark theme I created.
 
 ### Step 4: The VectorShift "Glow Up" (Styling)
 - I took a look at the VectorShift website and loved their dark-mode purple aesthetic, so I decided to match it!

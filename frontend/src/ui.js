@@ -12,6 +12,7 @@ import { OutputNode } from './nodes/outputNode';
 import { TextNode } from './nodes/textNode';
 import { NoteNode } from './nodes/noteNode';
 import { DateNode } from './nodes/dateNode';
+import { MathNode } from './nodes/mathNode';
 
 import 'reactflow/dist/style.css';
 
@@ -24,6 +25,7 @@ const nodeTypes = {
   text: TextNode,
   customNote: NoteNode,
   customDate: DateNode,
+  customMath: MathNode,
 };
 
 const selector = (state) => ({
