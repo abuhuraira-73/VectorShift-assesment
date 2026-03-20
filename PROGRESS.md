@@ -36,6 +36,11 @@
 1. [x] **Step 1: Build the Master Template**: Create a single "Base" component to handle the look and the connection points for all blocks.
 2. [x] **Step 2: Update the Old Blocks**: Go into the existing Input, Output, LLM, and Text blocks and swap their old code for the new Master template.
 3. [ ] **Step 3: Create 5 New Blocks**: Quickly build 5 more types of nodes using the new template.
+    - [x] **3a: Note Node** - A simple sticky note for comments.
+    - [ ] **3b: Date Node** - A calendar picker for scheduling.
+    - [ ] **3c: Math Node** - A basic calculation block.
+    - [ ] **3d: Choice Node** - A dropdown selection menu.
+    - [ ] **3e: Image Node** - A URL-based image previewer.
 4. [x] **Step 4: Style Everything**: Add CSS to give it a clean, professional look (colors, shadows, rounded corners).
 5. [ ] **Step 5: Code the "Smart" Text Block**: Write the logic for the Text block to grow when I type and detect the `{{ curly brackets }}` for the extra connection points.
 6. [ ] **Step 6: Handle the "Submit" Logic**: Update the frontend to send the map of nodes and edges to the backend.
@@ -59,6 +64,9 @@
 ### Step 2: Cleaning up the Existing Nodes
 - I went through the original nodes (`inputNode.js`, `llmNode.js`, `outputNode.js`, and `textNode.js`) and refactored them to use the new `BaseNode` template. 
 - I stripped out all the repetitive CSS and manual Handle logic. The code is much shorter now and looks like something a pro would write.
+
+### Step 3: Adding New Features (The 5 Nodes)
+- **The Note Node**: I built a "sticky note" block. It uses a yellow background and a simple text area. I even fixed a small bug where the text was a "default value" and turned it into a "placeholder" so it’s much nicer for the user to type into. It’s perfect for leaving comments on the map.
 
 ### Step 4: The VectorShift "Glow Up" (Styling)
 - I took a look at the VectorShift website and loved their dark-mode purple aesthetic, so I decided to match it!
