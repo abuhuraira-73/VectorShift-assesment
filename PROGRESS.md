@@ -51,7 +51,6 @@
 - Downloaded the project files and got the environment set up.
 - Fixed the Python backend issues (installed `fastapi`, `uvicorn`, and `python-multipart`).
 - Fixed the Frontend permissions issue on my Mac and got the React app running on `localhost:3000`.
-- Initialized Git and pushed the code to GitHub so I have a backup.
 
 ### Step 1: Building the "Master Blueprint" (BaseNode.js)
 - I built a `BaseNode.js` component to handle shared logic for all nodes. Now, instead of writing 50 lines for a new node, I only need about 10. It’s way easier to maintain and explain.

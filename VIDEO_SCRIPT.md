@@ -1,63 +1,65 @@
-# Video Walkthrough Script - VectorShift Assessment
+# My Project Walkthrough Script
 
-Use this script as a guide for your screen recording. It’s broken down into scenes so you can easily show off each feature.
+## Tips for a Good Vibe:
+- Just talk like you're showing this to a friend or a teammate. 
+- It’s okay to say "um" or "so" sometimes—it makes it sound real!
+- Take a breath between scenes.
 
 ---
 
-## Introduction (30 seconds)
-**On Screen**: Your browser with the empty canvas and the 9 buttons at the top.
+## Intro (The Beginning)
+**On Screen**: Your browser showing the full canvas with a beautiful, themed pipeline already built.
 **What to say**: 
-"Hi there! I'm Abu Huraira, and this is my submission for the VectorShift Frontend Technical Assessment. I've built a fully functional No-Code Pipeline builder that matches the VectorShift aesthetic. I've focused on clean code, reusable components, and some advanced dynamic features."
+"Hey everyone! I'm Abu Huraira. I've been working on this technical assessment for VectorShift, and I'm really excited to show you what I’ve built. My main goal was to make something that doesn't just work, but actually feels like a finished product that fits right into the VectorShift platform."
 
 ---
 
-## Scene 1: The "Glow Up" & Node Abstraction (1 minute)
-**On Screen**: Drag an **Input** and an **LLM** node onto the canvas.
+## Scene 1: The Look & The "Blueprint"
+**On Screen**: Drag an **Input** node and move it around.
 **What to say**: 
-"First, let's talk about the design. I was really inspired by the VectorShift dark-mode theme, so I've updated the entire UI with a professional deep navy and purple palette. 
+"So, first things first—the look. I spent some time checking out the VectorShift website because I wanted to match that cool dark-mode purple vibe. I updated the background, the headers, and even the connection dots to make it feel official.
 
-Technically, I didn't want to repeat code for every node, so I built a **BaseNode blueprint**. This master component handles the headers, the styling, and the connection handles. This made the code much cleaner and allowed me to add new nodes in just minutes."
+Now, for the code, I didn't want to just copy-paste the same thing over and over. So, I created a 'Master Blueprint' node. This handles all the styling and the connection dots in one place. It made building the rest of the app way faster and kept the code really clean."
 
 ---
 
-## Scene 2: Showing the 5 New Nodes (1.5 minutes)
-**On Screen**: Drag the **Note**, **Date**, **Math**, and **Image** nodes onto the screen.
+## Scene 2: The 5 New Nodes
+**On Screen**: Drag out the **Note**, **Math**, and **Image** nodes.
 **What to say**: 
-"Using that blueprint, I added 5 brand-new nodes to the toolbar:
-1. **The Note Node**: A simple sticky note for leaving comments.
-2. **The Date Picker**: A modern calendar input for scheduling.
-3. **The Math Node**: This actually calculates results in real-time! If I change these numbers, the result updates instantly on the screen.
-4. **The Choice Node**: A clean dropdown menu.
-5. **The Image Node**: This is one of my favorites. It supports both pasting a URL or uploading a file directly from my computer to preview it in the pipeline."
+"Using that blueprint, I added 5 new types of nodes. We've got a Note node for comments, a Date picker, and a Math node. 
+
+One thing I'm proud of is this Math node—it actually works! You can put numbers in, and the result updates right there while you type. I also upgraded the Image node so you can either paste a link or just upload a file from your computer to see a preview. It makes the whole thing feel much more professional."
 
 ---
 
-## Scene 3: The Smart Text Node (1.5 minutes)
-**On Screen**: Drag a **Text** node. Type: `Hello {{ name }}, welcome to {{ project }}`.
+## Scene 2.5: A Quick Look at the Code
+**On Screen**: Switch to VS Code and show `frontend/src/nodes/BaseNode.js`.
+**What to do**: Hover your mouse over the `handles.map` section (around line 35).
 **What to say**: 
-"Now, let's look at the **Smart Text Node**. I’ve implemented two advanced features here:
-- First, it **Auto-Resizes**. As I type more lines, the box grows taller so the user never has to deal with tiny scrollbars.
-- Second, I’ve added **Dynamic Variable Detection**. Notice how as I typed those double curly brackets, new connection handles automatically appeared on the left side. If I delete them, they vanish. This makes building dynamic prompts really intuitive."
+"I'll quickly show you the code for the **BaseNode**. You can see how I've set up this reusable component to handle the layout and the handles dynamically. This keeps the actual node files, like the `TextNode` or the `MathNode`, very small and focused on their own unique features."
 
 ---
 
-## Scene 4: Backend Integration & Loop Check (1 minute)
-**On Screen**: Create a loop (LLM-1 -> LLM-2 -> LLM-1). Click the **Submit Pipeline** button.
+## Scene 3: The Smart Text Node
+**On Screen**: Switch back to the browser. Drag a **Text** node and type: `Hey {{ name }}, check this out!`.
 **What to say**: 
-"Finally, I’ve connected the frontend to a Python FastAPI backend. When I hit 'Submit,' the system counts all nodes and edges and performs a **DAG check**—which stands for Directed Acyclic Graph. 
-
-Because I’ve created a loop here between these two LLMs, the system correctly identifies that this isn't a valid DAG and alerts the user. If I break the loop and submit again, it confirms the pipeline is valid. This ensures that users don't create infinite loops that would break their AI workflows."
+"This Text node is probably the 'smartest' part of the app. I wanted to solve two big problems:
+One, I made it auto-resize. So as you type more text, the box just grows with you—no more annoying scrollbars.
+Two, check this out: when I type these double curly brackets for a variable, a new connection dot just pops up automatically on the left. It's really useful for building dynamic prompts without having to manually add dots everywhere."
 
 ---
 
-## Conclusion (20 seconds)
-**On Screen**: Your full beautiful canvas with a variety of nodes connected.
+## Scene 4: The Submit Button & Loop Check
+**On Screen**: Connect two nodes in a circle (A -> B -> A). Switch to VS Code and show `backend/main.py`.
+**What to do**: Scroll down and hover your mouse over the `check_if_dag` function (around line 38).
 **What to say**: 
-"I've really enjoyed working on this—it was a great way to show how I handle reusable React components, dynamic UI logic, and backend integration. Everything is pushed to my GitHub and ready for review. Thanks for your time!"
+"Finally, I connected everything to a Python backend. I'll show you the **DAG logic** I wrote here in `main.py`. I'm using a topological sort algorithm to check for loops. 
+
+Switching back to the browser... if I connect these nodes in a circle and hit submit, the app correctly identifies that it's not a valid pipeline. If I fix the connection and try again, it gives me a success message with the total node and edge counts."
 
 ---
 
-### Tips for your recording:
-1. **Go slow**: Give the viewer a second to see the change after you type or click.
-2. **Be proud**: You built some really cool features like the Image Upload and the Magic Handles—make sure to sound excited about them!
-3. **Resolution**: Make sure your text is big enough to read on the video.
+## Conclusion (The End)
+**On Screen**: Show your full workspace one last time.
+**What to say**: 
+"I put a lot of effort into making this feel smooth and looking at every small detail. I'm really happy with how it turned out. Thanks for taking the time to watch my demo, and I'd love to hear what you think!"
