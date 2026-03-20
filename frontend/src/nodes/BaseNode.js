@@ -1,5 +1,5 @@
 // BaseNode.js - This is my "Master Blueprint" for all nodes.
-// It handles the title, the border, and the connection points (handles).
+// Updated with the VectorShift Purple Dark-Mode Theme.
 
 import { Handle } from 'reactflow';
 
@@ -8,30 +8,31 @@ export const BaseNode = ({ id, label, children, handles = [] }) => {
     <div style={{
       width: 200, 
       minHeight: 80, 
-      border: '1px solid #777', 
-      borderRadius: '8px',
-      background: '#fff',
+      border: '1px solid #4c1d95', // Deep purple border
+      borderRadius: '12px',
+      background: '#1e1b4b', // Dark navy background
       display: 'flex',
       flexDirection: 'column',
-      boxShadow: '0 4px 8px rgba(0,0,0,0.1)',
-      fontFamily: 'Arial, sans-serif'
+      boxShadow: '0 10px 15px -3px rgba(0, 0, 0, 0.5)',
+      color: '#fff', // White text
+      fontFamily: 'Inter, sans-serif',
+      overflow: 'hidden'
     }}>
-      {/* The Header (Title Bar) */}
+      {/* The Header (Vibrant Purple Title Bar) */}
       <div style={{
-        background: '#f0f0f0',
-        padding: '8px 10px',
-        borderBottom: '1px solid #ccc',
-        borderTopLeftRadius: '7px',
-        borderTopRightRadius: '7px',
-        fontWeight: 'bold',
-        fontSize: '13px',
-        color: '#333'
+        background: '#6366f1', // Vibrant purple
+        padding: '10px 12px',
+        fontWeight: '600',
+        fontSize: '14px',
+        display: 'flex',
+        justifyContent: 'center',
+        color: '#fff'
       }}>
         {label}
       </div>
 
-      {/* The Content Area (Where the specific inputs/text go) */}
-      <div style={{ padding: '12px', flex: 1 }}>
+      {/* The Content Area */}
+      <div style={{ padding: '15px', flex: 1 }}>
         {children}
       </div>
 
@@ -43,9 +44,10 @@ export const BaseNode = ({ id, label, children, handles = [] }) => {
           position={h.position}
           id={`${id}-${h.id}`}
           style={{ 
-            background: '#555', 
+            background: '#818cf8', // Lighter purple dots
             width: '8px', 
             height: '8px',
+            border: '2px solid #fff', // White outline to match screenshot
             ...h.style 
           }}
         />
