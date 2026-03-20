@@ -35,14 +35,14 @@
 
 1. [x] **Step 1: Build the Master Template**: Create a single "Base" component to handle the look and the connection points for all blocks.
 2. [x] **Step 2: Update the Old Blocks**: Go into the existing Input, Output, LLM, and Text blocks and swap their old code for the new Master template.
-3. [ ] **Step 3: Create 5 New Blocks**: Quickly build 5 more types of nodes using the new template.
+3. [x] **Step 3: Create 5 New Blocks**: Quickly build 5 more types of nodes using the new template.
     - [x] **3a: Note Node** - A simple sticky note for comments.
     - [x] **3b: Date Node** - A calendar picker for scheduling.
     - [x] **3c: Math Node** - A basic calculation block.
     - [x] **3d: Choice Node** - A dropdown selection menu.
-    - [ ] **3e: Image Node** - A URL-based image previewer.
+    - [x] **3e: Image Node** - A URL-based image previewer with local upload.
 4. [x] **Step 4: Style Everything**: Add CSS to give it a clean, professional look (colors, shadows, rounded corners).
-5. [ ] **Step 5: Code the "Smart" Text Block**: Write the logic for the Text block to grow when I type and detect the `{{ curly brackets }}` for the extra connection points.
+5. [x] **Step 5: Code the "Smart" Text Block**: Write the logic for the Text block to grow when I type and detect the `{{ curly brackets }}` for the extra connection points.
 6. [ ] **Step 6: Handle the "Submit" Logic**: Update the frontend to send the map of nodes and edges to the backend.
 7. [ ] **Step 7: Build the Backend "Loop Check"**: Write the Python logic to count everything and check for those infinite loops (DAG).
 8. [ ] **Step 8: Show the Result**: Make sure the frontend shows a clean alert with all the info from the backend.
@@ -70,6 +70,7 @@
 - **The Date Node**: I added a "Date Picker" block. It lets users choose a date from a calendar. It was super fast to build because it uses the `BaseNode` template, which means it already matches the professional dark theme I created.
 - **The Math Node**: I built a node for simple calculations. It can add, subtract, multiply, or divide two numbers. I even added a little piece of logic so it calculates the result in real-time right on the screen!
 - **The Choice Node**: I added a dropdown selection block. This is useful for picking options like languages or AI models. It uses the same theme and only took a few lines of code because of my `BaseNode` template.
+- **The Image Node**: This is a really cool one! I built a block that lets you preview images. I even added a feature where you can switch between pasting a URL or uploading a file directly from your computer. It makes the pipeline look very visual and advanced.
 
 ### Step 4: The VectorShift "Glow Up" (Styling)
 - I took a look at the VectorShift website and loved their dark-mode purple aesthetic, so I decided to match it!
@@ -77,3 +78,8 @@
 - **Professional Details**: I added rounded corners, soft shadows, and white text to make it look like a high-end SaaS product.
 - **The Grid**: Swapped the old line grid for a professional dot pattern background in `ui.js`.
 - **Connections**: Styled the handles (dots) to be purple with a white border, just like the ones on their actual platform. I'm really happy with how it looks—it feels like it belongs in the VectorShift ecosystem now!
+
+### Step 5: The "Smart" Text Node
+- I upgraded the **Text Node** to be much more advanced. 
+- **Auto-Resizing**: I wrote a custom piece of logic that uses `scrollHeight` to make the text box grow taller automatically as you type. No more scrollbars inside the node!
+- **Dynamic Connection Dots**: I added a "magic" feature where if you type something like `{{ user_name }}`, a new connection point instantly pops up on the left side of the node. If you delete the brackets, the dot disappears. This is great for building dynamic AI prompts.
