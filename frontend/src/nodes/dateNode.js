@@ -1,5 +1,3 @@
-// dateNode.js - A node for picking a date
-
 import { useState } from 'react';
 import { Position } from 'reactflow';
 import { BaseNode } from './BaseNode';

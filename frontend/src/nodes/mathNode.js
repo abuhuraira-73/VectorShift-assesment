@@ -1,5 +1,3 @@
-// mathNode.js - A node for basic math operations
-
 import { useState } from 'react';
 import { Position } from 'reactflow';
 import { BaseNode } from './BaseNode';
@@ -9,7 +7,7 @@ export const MathNode = ({ id, data }) => {
   const [num2, setNum2] = useState(data?.num2 || 0);
   const [operation, setOperation] = useState(data?.operation || '+');
 
-  // Simple logic to calculate the result live
+  // Quick live calculation
   const getResult = () => {
     const n1 = parseFloat(num1) || 0;
     const n2 = parseFloat(num2) || 0;

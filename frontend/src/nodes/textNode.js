@@ -1,6 +1,3 @@
-// textNode.js - An upgraded "Smart" Text Node
-// Fixed the layout issue where the text box was off-center.
-
 import { useState, useEffect, useRef } from 'react';
 import { Position } from 'reactflow';
 import { BaseNode } from './BaseNode';
@@ -10,7 +7,7 @@ export const TextNode = ({ id, data }) => {
   const [variables, setVariables] = useState([]);
   const textareaRef = useRef(null);
 
-  // Auto-resize the textarea height based on its content
+  // Grows the text box as I type
   useEffect(() => {
     const textarea = textareaRef.current;
     if (textarea) {
@@ -19,6 +16,7 @@ export const TextNode = ({ id, data }) => {
     }
   }, [currText]);
 
+  // Look for {{ var }} tags and return the names
   const extractVariables = (text) => {
     const regex = /\{\{\s*([a-zA-Z_$][a-zA-Z0-9_$]*)\s*\}\}/g;
     const matches = new Set();
@@ -58,7 +56,7 @@ export const TextNode = ({ id, data }) => {
           onChange={handleTextChange} 
           style={{ 
             width: '100%', 
-            boxSizing: 'border-box', // Ensures padding doesn't push it out
+            boxSizing: 'border-box',
             minHeight: '40px',
             maxHeight: '200px',
             overflowY: 'hidden',

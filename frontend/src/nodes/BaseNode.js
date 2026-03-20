@@ -1,26 +1,24 @@
-// BaseNode.js - This is my "Master Blueprint" for all nodes.
-// Updated with the VectorShift Purple Dark-Mode Theme.
-
 import { Handle } from 'reactflow';
 
+// Master template for all my nodes
 export const BaseNode = ({ id, label, children, handles = [] }) => {
   return (
     <div style={{
       width: 200, 
       minHeight: 80, 
-      border: '1px solid #4c1d95', // Deep purple border
+      border: '1px solid #4c1d95',
       borderRadius: '12px',
-      background: '#1e1b4b', // Dark navy background
+      background: '#1e1b4b',
       display: 'flex',
       flexDirection: 'column',
       boxShadow: '0 10px 15px -3px rgba(0, 0, 0, 0.5)',
-      color: '#fff', // White text
+      color: '#fff',
       fontFamily: 'Inter, sans-serif',
       overflow: 'hidden'
     }}>
-      {/* The Header (Vibrant Purple Title Bar) */}
+      {/* Brand header */}
       <div style={{
-        background: '#6366f1', // Vibrant purple
+        background: '#6366f1',
         padding: '10px 12px',
         fontWeight: '600',
         fontSize: '14px',
@@ -31,12 +29,11 @@ export const BaseNode = ({ id, label, children, handles = [] }) => {
         {label}
       </div>
 
-      {/* The Content Area */}
       <div style={{ padding: '15px', flex: 1 }}>
         {children}
       </div>
 
-      {/* The Connection Dots (Handles) */}
+      {/* Connector dots */}
       {handles.map((h, idx) => (
         <Handle
           key={`${id}-handle-${idx}`}
@@ -44,10 +41,10 @@ export const BaseNode = ({ id, label, children, handles = [] }) => {
           position={h.position}
           id={`${id}-${h.id}`}
           style={{ 
-            background: '#818cf8', // Lighter purple dots
+            background: '#818cf8',
             width: '8px', 
             height: '8px',
-            border: '2px solid #fff', // White outline to match screenshot
+            border: '2px solid #fff',
             ...h.style 
           }}
         />

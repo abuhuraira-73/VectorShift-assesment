@@ -1,12 +1,10 @@
-// imageNode.js - A node for previewing an image from a URL or Local Upload
-
 import { useState } from 'react';
 import { Position } from 'reactflow';
 import { BaseNode } from './BaseNode';
 
 export const ImageNode = ({ id, data }) => {
   const [url, setUrl] = useState(data?.url || '');
-  const [mode, setMode] = useState('url'); // 'url' or 'upload'
+  const [mode, setMode] = useState('url'); // Toggle between URL and Local Upload
 
   const handleFileUpload = (e) => {
     const file = e.target.files[0];
@@ -25,7 +23,7 @@ export const ImageNode = ({ id, data }) => {
     <BaseNode id={id} label="Image Preview" handles={handles}>
       <div style={{ display: 'flex', flexDirection: 'column', gap: '8px' }}>
         
-        {/* Toggle Buttons */}
+        {/* Toggle buttons for input type */}
         <div style={{ display: 'flex', gap: '5px', marginBottom: '5px' }}>
           <button 
             onClick={() => setMode('url')} 
@@ -59,7 +57,6 @@ export const ImageNode = ({ id, data }) => {
           </button>
         </div>
 
-        {/* Dynamic Input Based on Mode */}
         {mode === 'url' ? (
           <input 
             type="text" 
@@ -77,7 +74,7 @@ export const ImageNode = ({ id, data }) => {
           />
         )}
 
-        {/* Image Preview Window */}
+        {/* Small preview window */}
         {url && (
           <div style={{ 
             marginTop: '5px', 

@@ -1,5 +1,3 @@
-// submit.js - The final button that sends your pipeline to the backend
-
 import { useStore } from './store';
 import { shallow } from 'zustand/shallow';
 
@@ -13,7 +11,7 @@ export const SubmitButton = () => {
 
   const handleSubmit = async () => {
     try {
-      // Send the nodes and edges to our Python backend
+      // Send the pipeline data to the backend
       const response = await fetch('http://localhost:8000/pipelines/parse', {
         method: 'POST',
         headers: {
@@ -28,7 +26,7 @@ export const SubmitButton = () => {
 
       const result = await response.json();
 
-      // Show the results in a clean alert
+      // Simple results alert
       alert(
         `Pipeline Submitted Successfully!\n\n` +
         `Nodes: ${result.num_nodes}\n` +
@@ -37,7 +35,7 @@ export const SubmitButton = () => {
       );
     } catch (error) {
       console.error('Error submitting pipeline:', error);
-      alert('Error: Could not connect to the backend. Make sure your Python server is running!');
+      alert('Error: Could not connect to the backend.');
     }
   };
 

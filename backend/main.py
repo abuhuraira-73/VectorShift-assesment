@@ -4,7 +4,7 @@ from collections import deque, defaultdict
 
 app = FastAPI()
 
-# Enable CORS so the frontend can talk to the backend
+# Make sure the frontend can talk to this server
 app.add_middleware(
     CORSMiddleware,
     allow_origins=["*"],
@@ -22,12 +22,10 @@ async def parse_pipeline(request: Request):
     nodes = data.get('nodes', [])
     edges = data.get('edges', [])
     
-    # 1. Count nodes and edges
     num_nodes = len(nodes)
     num_edges = len(edges)
     
-    # 2. Check for DAG (Directed Acyclic Graph)
-    # We use Kahn's Algorithm (Topological Sort) to detect cycles
+    # Check if there are any infinite loops
     is_dag = check_if_dag(nodes, edges)
     
     return {
@@ -37,7 +35,7 @@ async def parse_pipeline(request: Request):
     }
 
 def check_if_dag(nodes, edges):
-    # Create an adjacency list and a map for in-degrees (incoming connections)
+    # Standard loop checking logic
     adj = defaultdict(list)
     in_degree = {node['id']: 0 for node in nodes}
     
@@ -47,7 +45,6 @@ def check_if_dag(nodes, edges):
         adj[source].append(target)
         in_degree[target] = in_degree.get(target, 0) + 1
         
-    # Queue for nodes with 0 incoming connections
     queue = deque([node_id for node_id, degree in in_degree.items() if degree == 0])
     
     visited_count = 0
@@ -60,5 +57,4 @@ def check_if_dag(nodes, edges):
             if in_degree[v] == 0:
                 queue.append(v)
                 
-    # If we visited all nodes, it's a DAG. If not, there's a loop!
     return visited_count == len(nodes)
