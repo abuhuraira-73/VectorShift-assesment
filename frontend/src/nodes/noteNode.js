@@ -4,7 +4,7 @@ import { useState } from 'react';
 import { BaseNode } from './BaseNode';
 
 export const NoteNode = ({ id, data }) => {
-  const [note, setNote] = useState(data?.note || 'Enter your note here...');
+  const [note, setNote] = useState(data?.note || '');
 
   return (
     <BaseNode id={id} label="Note" handles={[]}>
@@ -12,6 +12,7 @@ export const NoteNode = ({ id, data }) => {
         <textarea 
           value={note} 
           onChange={(e) => setNote(e.target.value)} 
+          placeholder="Enter your note here..."
           style={{ 
             width: '100%', 
             border: 'none', 
