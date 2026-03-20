@@ -14,6 +14,7 @@ export const PipelineToolbar = () => {
                 <DraggableNode type='customNote' label='Note' />
                 <DraggableNode type='customDate' label='Date' />
                 <DraggableNode type='customMath' label='Math' />
+                <DraggableNode type='customChoice' label='Choice' />
             </div>
         </div>
     );
