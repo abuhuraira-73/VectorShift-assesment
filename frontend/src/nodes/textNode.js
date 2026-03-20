@@ -1,5 +1,5 @@
 // textNode.js - An upgraded "Smart" Text Node
-// Fixed the auto-resizing logic to use scrollHeight for a smoother experience.
+// Fixed the layout issue where the text box was off-center.
 
 import { useState, useEffect, useRef } from 'react';
 import { Position } from 'reactflow';
@@ -14,12 +14,11 @@ export const TextNode = ({ id, data }) => {
   useEffect(() => {
     const textarea = textareaRef.current;
     if (textarea) {
-      textarea.style.height = 'auto'; // Reset height to recalculate
-      textarea.style.height = `${textarea.scrollHeight}px`; // Set to content height
+      textarea.style.height = 'auto'; 
+      textarea.style.height = `${textarea.scrollHeight}px`; 
     }
   }, [currText]);
 
-  // Function to find variables like {{ name }} in the text
   const extractVariables = (text) => {
     const regex = /\{\{\s*([a-zA-Z_$][a-zA-Z0-9_$]*)\s*\}\}/g;
     const matches = new Set();
@@ -30,7 +29,6 @@ export const TextNode = ({ id, data }) => {
     return Array.from(matches);
   };
 
-  // Update handles whenever text changes
   useEffect(() => {
     const detectedVars = extractVariables(currText);
     setVariables(detectedVars);
@@ -40,7 +38,6 @@ export const TextNode = ({ id, data }) => {
     setCurrText(e.target.value);
   };
 
-  // Create handles: One output on the right, and one input for each variable on the left
   const dynamicHandles = [
     { type: 'source', position: Position.Right, id: 'output' },
     ...variables.map((varName, index) => ({
@@ -61,16 +58,18 @@ export const TextNode = ({ id, data }) => {
           onChange={handleTextChange} 
           style={{ 
             width: '100%', 
+            boxSizing: 'border-box', // Ensures padding doesn't push it out
             minHeight: '40px',
-            maxHeight: '200px', // Limit how much it can grow
-            overflowY: 'hidden', // Hide scrollbar during resize
+            maxHeight: '200px',
+            overflowY: 'hidden',
             resize: 'none',
             border: '1px solid #475569',
             borderRadius: '4px',
-            padding: '5px',
+            padding: '8px',
             background: '#334155',
             color: 'white',
-            fontSize: '12px'
+            fontSize: '12px',
+            lineHeight: '1.4'
           }}
           placeholder="Type {{variable}} to add handles..."
         />
