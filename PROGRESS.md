@@ -39,7 +39,7 @@
     - [x] **3a: Note Node** - A simple sticky note for comments.
     - [x] **3b: Date Node** - A calendar picker for scheduling.
     - [x] **3c: Math Node** - A basic calculation block.
-    - [ ] **3d: Choice Node** - A dropdown selection menu.
+    - [x] **3d: Choice Node** - A dropdown selection menu.
     - [ ] **3e: Image Node** - A URL-based image previewer.
 4. [x] **Step 4: Style Everything**: Add CSS to give it a clean, professional look (colors, shadows, rounded corners).
 5. [ ] **Step 5: Code the "Smart" Text Block**: Write the logic for the Text block to grow when I type and detect the `{{ curly brackets }}` for the extra connection points.
@@ -69,6 +69,7 @@
 - **The Note Node**: I built a "sticky note" block. It uses a yellow background and a simple text area. I even fixed a small bug where the text was a "default value" and turned it into a "placeholder" so it’s much nicer for the user to type into. It’s perfect for leaving comments on the map.
 - **The Date Node**: I added a "Date Picker" block. It lets users choose a date from a calendar. It was super fast to build because it uses the `BaseNode` template, which means it already matches the professional dark theme I created.
 - **The Math Node**: I built a node for simple calculations. It can add, subtract, multiply, or divide two numbers. I even added a little piece of logic so it calculates the result in real-time right on the screen!
+- **The Choice Node**: I added a dropdown selection block. This is useful for picking options like languages or AI models. It uses the same theme and only took a few lines of code because of my `BaseNode` template.
 
 ### Step 4: The VectorShift "Glow Up" (Styling)
 - I took a look at the VectorShift website and loved their dark-mode purple aesthetic, so I decided to match it!
